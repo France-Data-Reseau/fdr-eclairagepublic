@@ -1,0 +1,175 @@
+{
+   "$schema":"https://specs.frictionlessdata.io/schemas/table-schema.json",
+   "name":"eclairagepublic_pointslumineux",
+   "title":"Eclairage public : points lumineux - tableschema",
+   "description":"...",
+   "keywords":[
+      "FDR"
+   ],
+   "countryCode":"FR",
+   "homepage":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
+   "path":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
+   "image":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
+   "licenses":[
+      {
+         "title":"Etalab Licence Ouverte 2.0",
+         "name":"etalab-2.0",
+         "path":"https://spdx.org/licenses/etalab-2.0.html"
+      }
+   ],
+   "resources":[
+      {
+         "title":"Fichier valide (CSV)",
+         "name":"exemple-valide-csv",
+         "path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/exemple-valide.csv"
+      }
+   ],
+   "sources":[
+      {
+         "title":"Description du modèle de données",
+         "path":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public/donnees#definition-du-format"
+      }
+   ],
+   "created":"2022-02-28",
+   "lastModified":"2022-02-08",
+   "version":"0.1",
+   "contributors":[
+      {
+         "title":"Philippe Deverchère",
+         "email":"john.smith@etalab.gouv.fr",
+         "organisation":"DarkSkyLab",
+         "role":"author"
+      },
+      {
+         "title":"Marc Dutoo",
+         "email":"john.smith@etalab.gouv.fr",
+         "organisation":"Ozwillo",
+         "role":"contributor"
+      }
+   ],
+	"fields": [
+		{
+			"name": "INSEE",
+			"title": "INSEE",
+			"description": "Code INSEE de la commune de rattachement du point lumineux [obligatoire]",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "Commune",
+			"title": "Commune",
+			"description": "Nom de la commune de rattachement du point lumineux",
+			"type": "string"
+		},
+		{
+			"name": "SIREN",
+			"title": "Référence",
+			"description": "Code SIREN de l'exploitant du point lumineux [obligatoire]",
+			"type": "string",
+			"constraints": {
+				"required": true
+			}
+		},
+		{
+			"name": "Référence",
+			"title": "Référence",
+			"type": "string"
+		},
+		{
+			"name": "X",
+			"title": "X",
+			"type": "number"
+		},
+		{
+			"name": "Y",
+			"title": "Y",
+			"type": "number"
+		},
+		{
+			"name": "Latitude",
+			"title": "Latitude",
+			"type": "number"
+		},
+		{
+			"name": "Longitude",
+			"title": "Longitude",
+			"type": "number"
+		},
+		{
+			"name": "Puissance",
+			"title": "Puissance",
+			"type": "integer"
+		},
+		{
+			"name": "Flux",
+			"title": "Flux",
+			"type": "integer"
+		},
+		{
+			"name": "Type de luminaire",
+			"title": "Type de luminaire",
+			"type": "string"
+		},
+		{
+			"name": "Type de source",
+			"title": "Type de source",
+			"type": "string",
+                        "constraints": {
+                          "enum": ["LED", "SHP", "IM", "SBP", "INC", "HAL", "TF", "FC", "VM", "IND", "XEN", "AU", "XX"]
+                         }
+		},
+		{
+			"name": "ULR",
+			"title": "ULR",
+			"type": "integer"
+		},
+		{
+			"name": "Température de couleur",
+			"title": "Température de couleur",
+			"type": "integer"
+		},
+		{
+			"name": "Hauteur",
+			"title": "Hauteur",
+			"type": "number"
+		},
+		{
+			"name": "Profil nocturne",
+			"title": "Profil nocturne",
+			"type": "string",
+			"example" : "E/21:00HL/07:00HL*H/18:00HL/08:00HL",
+                        "constraints": {
+                          "pattern": ".+"
+                         }
+		},
+		{
+			"name": "Plages de variation",
+			"title": "Plages de variation",
+			"type": "string",
+			"example" : "A/F/%/30/-240MN/-120MN*A/F/%/70/-120MN/+120MN*A/F/%/30/+120MN/+240MN",
+                        "constraints": {
+                          "pattern": ".+"
+                         }
+		},
+		{
+			"name": "Eclairage adaptatif",
+			"title": "Eclairage adaptatif",
+			"type": "string",
+                        "constraints": {
+                          "enum": ["NA", "LUM", "DTP", "ACT", "AU"]
+                         }
+		},
+		{
+			"name": "Tag",
+			"title": "Tag",
+			"type": "string"
+		},
+		{
+			"name": "Commentaire",
+			"title": "Commentaire",
+			"type": "string"
+		}
+	]
+}
