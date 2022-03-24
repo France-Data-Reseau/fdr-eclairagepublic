@@ -1,10 +1,12 @@
 {
    "$schema":"https://specs.frictionlessdata.io/schemas/table-schema.json",
    "name":"eclairagepublic_pointslumineux",
-   "title":"Eclairage public : points lumineux - tableschema",
-   "description":"...",
+   "title":"Table Schema points lumineux",
+   "description":"Table Schema pour les données de points lumineux au format intermédiaire dans le cadre du cade d'usage FDR Eclairage Public",
    "keywords":[
-      "FDR"
+      "FDR",
+      "Eclairage public",
+      "Points lumineux"
    ],
    "countryCode":"FR",
    "homepage":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
@@ -31,7 +33,7 @@
       }
    ],
    "created":"2022-02-28",
-   "lastModified":"2022-02-08",
+   "lastModified":"2022-03-24",
    "version":"0.1",
    "contributors":[
       {
@@ -49,7 +51,7 @@
    ],
 	"fields": [
 		{
-			"name": "INSEE",
+			"name": "insee",
 			"title": "INSEE",
 			"description": "Code INSEE de la commune de rattachement du point lumineux [obligatoire]",
 			"type": "string",
@@ -58,14 +60,14 @@
 			}
 		},
 		{
-			"name": "Commune",
+			"name": "commune",
 			"title": "Commune",
 			"description": "Nom de la commune de rattachement du point lumineux",
 			"type": "string"
 		},
 		{
-			"name": "SIREN",
-			"title": "Référence",
+			"name": "siren",
+			"title": "SIREN",
 			"description": "Code SIREN de l'exploitant du point lumineux [obligatoire]",
 			"type": "string",
 			"constraints": {
@@ -73,102 +75,125 @@
 			}
 		},
 		{
-			"name": "Référence",
+			"name": "reference",
 			"title": "Référence",
+			"description": "Référence du point lumineux - les références des points lumineux ne suivent pas un format spécifique, ce sont des chaînes de caractères quelconques",
 			"type": "string"
 		},
 		{
-			"name": "X",
+			"name": "x",
 			"title": "X",
-			"type": "number"
+			"description": "Coordonnée X de la localisation du point lumineux dans le système de référence géographique officiel (Lambert 93 pour la France Métropolitaine) [obligatoire]",
+			"type": "number",
+			"constraints": {
+				"required": true
+			}
 		},
 		{
-			"name": "Y",
+			"name": "y",
 			"title": "Y",
-			"type": "number"
+			"description": "Coordonnée Y de la localisation du point lumineux dans le système de référence géographique officiel (Lambert 93 pour la France Métropolitaine) [obligatoire]",
+			"type": "number",
+			"constraints": {
+				"required": true
+			}
 		},
 		{
-			"name": "Latitude",
+			"name": "latitude",
 			"title": "Latitude",
+			"description": "Latitude du point lumineux en degrés, positif au nord",
 			"type": "number"
 		},
 		{
-			"name": "Longitude",
+			"name": "longitude",
 			"title": "Longitude",
+			"description": "Longitude du point lumineux en degrés, positif à l'est",
 			"type": "number"
 		},
 		{
-			"name": "Puissance",
+			"name": "puissance",
 			"title": "Puissance",
+			"description": "Puissance active en fonctionnement nominal du point lumineux exprimée en watt",
 			"type": "integer"
 		},
 		{
-			"name": "Flux",
+			"name": "flux",
 			"title": "Flux",
+			"description": "Flux lumineux en fonctionnement nominal sortant du luminaire exprimé en lumens",
 			"type": "integer"
 		},
 		{
-			"name": "Type de luminaire",
+			"name": "type_luminaire",
 			"title": "Type de luminaire",
+			"description": "Type de luminaire associé au point lumineux",
 			"type": "string"
 		},
 		{
-			"name": "Type de source",
+			"name": "type_source",
 			"title": "Type de source",
+			"description": "Type de la source associée au point lumineux",
 			"type": "string",
-                        "constraints": {
-                          "enum": ["LED", "SHP", "IM", "SBP", "INC", "HAL", "TF", "FC", "VM", "IND", "XEN", "AU", "XX"]
-                         }
+		        "constraints": {
+		          "enum": ["LED", "SHP", "SBP", "IM", "INC", "HAL", "TF", "FC", "VM", "IND", "XEN", "AU", "XX"]
+		         }
 		},
 		{
-			"name": "ULR",
+			"name": "ulr",
 			"title": "ULR",
+			"description": "ULR du point lumineux en conditions d'utilisation exprimé entre 0 et 100 - il s'agit de la fraction du flux émis au-dessus de l'horizontal",
 			"type": "integer"
 		},
 		{
-			"name": "Température de couleur",
+			"name": "temperature_couleur",
 			"title": "Température de couleur",
+			"description": "Température de couleur de la source lumineuse exprimée en Kelvin",
 			"type": "integer"
 		},
 		{
-			"name": "Hauteur",
+			"name": "hauteur",
 			"title": "Hauteur",
+			"description": "Hauteur de feu du point lumineux par rapport à la surface terrestre exprimée en mètres",
 			"type": "number"
 		},
 		{
-			"name": "Profil nocturne",
+			"name": "profil_nocturne",
 			"title": "Profil nocturne",
+			"description": "Profil de fonctionnement du point lumineux - ce champ permet de spécifier l'heure d'allumage du point lumineux le soir et l'heure d'extinction le matin",
 			"type": "string",
 			"example" : "E/21:00HL/07:00HL*H/18:00HL/08:00HL",
-                        "constraints": {
-                          "pattern": ".+"
-                         }
+		        "constraints": {
+		          "pattern": "^((((([0-9]{4}-[0-9]{4})|A|E|H)(\$[1-9]+)?\/)?(([0-9]+:[0-9]+(HL|TU))|([\+-][0-9]+(MN|CS|LS)))\/(([0-9]+:[0-9]+(HL|TU))|([\+-][0-9]+(MN|CS|LS))))(\*)?)+$"
+		         }
 		},
 		{
-			"name": "Plages de variation",
+			"name": "plages_variation",
 			"title": "Plages de variation",
+			"description": "Plages de variation (soit sous forme d'une extinction complète soit sous forme de gradations) du point lumineux au cours de sa période de fonctionnement",
 			"type": "string",
 			"example" : "A/F/%/30/-240MN/-120MN*A/F/%/70/-120MN/+120MN*A/F/%/30/+120MN/+240MN",
-                        "constraints": {
-                          "pattern": ".+"
-                         }
+		        "constraints": {
+		          "pattern": "^(((([0-9]{4}\-[0-9]{4})|A|E|H)(\$[1-9]+)?\/)?[PFTX]\/([\%V])?\/([-0-9]+)?\/([0-9]+:[0-9]+(HL|TU)|[\+-][0-9]+(MN|CS|LS))\/([0-9]+:[0-9]+(HL|TU)|[\+-][0-9]+(MN|CS|LS))(\*)?)+$"
+		         }
 		},
 		{
-			"name": "Eclairage adaptatif",
+			"name": "eclairage_adaptatif",
 			"title": "Eclairage adaptatif",
+			"description": "Indication que le point lumineux est contrôlé par un mécanisme adaptatif",
 			"type": "string",
-                        "constraints": {
-                          "enum": ["NA", "LUM", "DTP", "ACT", "AU"]
-                         }
+		        "constraints": {
+		          "enum": ["NA", "LUM", "DTP", "ACT", "AU"]
+		         }
 		},
 		{
-			"name": "Tag",
+			"name": "tag",
 			"title": "Tag",
+			"description": "Tag optionnel associé au point lumineux - un tag permet d'associé une information spécifique aux points lumineux afin par exemple de réaliser un filtrage",
 			"type": "string"
 		},
 		{
-			"name": "Commentaire",
+			"name": "commentaire",
 			"title": "Commentaire",
+			"description": "Commentaire optionnel associé au point lumineux",
 			"type": "string"
 		}
 	]
