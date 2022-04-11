@@ -33,8 +33,8 @@
       }
    ],
    "created":"2022-02-28",
-   "lastModified":"2022-03-24",
-   "version":"0.1",
+   "lastModified":"2022-04-11",
+   "version":"0.2",
    "contributors":[
       {
          "title":"Philippe Deverchère",
@@ -56,7 +56,8 @@
 			"description": "Code INSEE de la commune de rattachement du point lumineux [obligatoire]",
 			"type": "string",
 			"constraints": {
-				"required": true
+				"required": true,
+				"pattern": "^[0-9AB]{5}$"
 			}
 		},
 		{
@@ -69,7 +70,7 @@
 			"name": "siren",
 			"title": "SIREN",
 			"description": "Code SIREN de l'exploitant du point lumineux [obligatoire]",
-			"type": "string",
+			"type": "integer",
 			"constraints": {
 				"required": true
 			}
@@ -133,9 +134,9 @@
 			"title": "Type de source",
 			"description": "Type de la source associée au point lumineux",
 			"type": "string",
-		        "constraints": {
-		          "enum": ["LED", "SHP", "SBP", "IM", "INC", "HAL", "TF", "FC", "VM", "IND", "XEN", "AU", "XX"]
-		         }
+			"constraints": {
+				"enum": ["LED", "SHP", "SBP", "IM", "INC", "HAL", "TF", "FC", "VM", "IND", "XEN", "AU", "XX"]
+			}
 		},
 		{
 			"name": "ulr",
@@ -161,9 +162,9 @@
 			"description": "Profil de fonctionnement du point lumineux - ce champ permet de spécifier l'heure d'allumage du point lumineux le soir et l'heure d'extinction le matin",
 			"type": "string",
 			"example" : "E/21:00HL/07:00HL*H/18:00HL/08:00HL",
-		        "constraints": {
-		          "pattern": "^((((([0-9]{4}-[0-9]{4})|A|E|H)(S[1-9]+)?\/)?(([0-9]+:[0-9]+(HL|TU))|([+-]?[0-9]+(MN|CS|LS)))\/(([0-9]+:[0-9]+(HL|TU))|([+-]?[0-9]+(MN|CS|LS))))([*])?)+$"
-		         }
+			"constraints": {
+				-"pattern": "^((((([0-9]{4}-[0-9]{4})|A|E|H)(S[1-9]+)?\/)?(([0-9]+:[0-9]+(HL|TU))|([+-]?[0-9]+(MN|CS|LS)))\/(([0-9]+:[0-9]+(HL|TU))|([+-]?[0-9]+(MN|CS|LS))))([*])?)+$"
+			}
 		},
 		{
 			"name": "plages_variation",
@@ -171,18 +172,18 @@
 			"description": "Plages de variation (soit sous forme d'une extinction complète soit sous forme de gradations) du point lumineux au cours de sa période de fonctionnement",
 			"type": "string",
 			"example" : "A/F/%/30/-240MN/-120MN*A/F/%/70/-120MN/+120MN*A/F/%/30/+120MN/+240MN",
-		        "constraints": {
-		          "pattern": "^(((([0-9]{4}-[0-9]{4})|A|E|H)(S[1-9]+)?\/)?[PFTX]\/([%V])?\/([-0-9]+)?\/([0-9]+:[0-9]+(HL|TU)|[+-]?[0-9]+(MN|CS|LS))\/([0-9]+:[0-9]+(HL|TU)|[+-]?[0-9]+(MN|CS|LS))([*])?)+$"
-		         }
+			"constraints": {
+				"pattern": "^(((([0-9]{4}-[0-9]{4})|A|E|H)(S[1-9]+)?\/)?[PFTX]\/([%V])?\/([-0-9]+)?\/([0-9]+:[0-9]+(HL|TU)|[+-]?[0-9]+(MN|CS|LS))\/([0-9]+:[0-9]+(HL|TU)|[+-]?[0-9]+(MN|CS|LS))([*])?)+$"
+			}
 		},
 		{
 			"name": "eclairage_adaptatif",
 			"title": "Eclairage adaptatif",
 			"description": "Indication que le point lumineux est contrôlé par un mécanisme adaptatif",
 			"type": "string",
-		        "constraints": {
-		          "enum": ["NA", "LUM", "DTP", "ACT", "AU"]
-		         }
+			"constraints": {
+				"enum": ["NA", "LUM", "DTP", "ACT", "AU"]
+			}
 		},
 		{
 			"name": "tag",
