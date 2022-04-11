@@ -1,54 +1,54 @@
 {
-   "$schema":"https://specs.frictionlessdata.io/schemas/table-schema.json",
-   "name":"eclairagepublic_pointslumineux",
-   "title":"Table Schema points lumineux",
-   "description":"Table Schema pour les données de points lumineux au format intermédiaire dans le cadre du cade d'usage FDR Eclairage Public",
-   "keywords":[
-      "FDR",
-      "Eclairage public",
-      "Points lumineux"
-   ],
-   "countryCode":"FR",
-   "homepage":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
-   "path":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
-   "image":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
-   "licenses":[
-      {
-         "title":"Etalab Licence Ouverte 2.0",
-         "name":"etalab-2.0",
-         "path":"https://spdx.org/licenses/etalab-2.0.html"
-      }
-   ],
-   "resources":[
-      {
-         "title":"Fichier valide (CSV)",
-         "name":"exemple-valide-csv",
-         "path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/exemple-valide.csv"
-      }
-   ],
-   "sources":[
-      {
-         "title":"Description du modèle de données",
-         "path":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public/donnees#definition-du-format"
-      }
-   ],
-   "created":"2022-02-28",
-   "lastModified":"2022-04-11",
-   "version":"0.2",
-   "contributors":[
-      {
-         "title":"Philippe Deverchère",
-         "email":"john.smith@etalab.gouv.fr",
-         "organisation":"DarkSkyLab",
-         "role":"author"
-      },
-      {
-         "title":"Marc Dutoo",
-         "email":"john.smith@etalab.gouv.fr",
-         "organisation":"Ozwillo",
-         "role":"contributor"
-      }
-   ],
+	"$schema":"https://specs.frictionlessdata.io/schemas/table-schema.json",
+	"name":"eclairagepublic_pointslumineux",
+	"title":"Table Schema points lumineux",
+	"description":"Table Schema pour les données de points lumineux au format intermédiaire dans le cadre du cade d'usage FDR Eclairage Public",
+	"keywords":[
+		"FDR",
+		"Eclairage public",
+		"Points lumineux"
+	],
+	"countryCode":"FR",
+	"homepage":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
+	"path":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
+	"image":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public",
+	"licenses":[
+		{
+			"title":"Etalab Licence Ouverte 2.0",
+			"name":"etalab-2.0",
+			"path":"https://spdx.org/licenses/etalab-2.0.html"
+		}
+	],
+	"resources":[
+		{
+			"title":"Fichier valide (CSV)",
+			"name":"exemple-valide-csv",
+			"path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/exemple-valide.csv"
+		}
+	],
+	"sources":[
+		{
+			"title":"Description du modèle de données",
+			"path":"https://jdb.francedatareseau.fr/groupes-projets/eclairage-public/donnees#definition-du-format"
+		}
+	],
+	"created":"2022-02-28",
+	"lastModified":"2022-04-11",
+	"version":"0.2",
+	"contributors":[
+		{
+			"title":"Philippe Deverchère",
+			"email":"john.smith@etalab.gouv.fr",
+			"organisation":"DarkSkyLab",
+			"role":"author"
+		},
+		{
+			"title":"Marc Dutoo",
+			"email":"john.smith@etalab.gouv.fr",
+			"organisation":"Ozwillo",
+			"role":"contributor"
+		}
+	],
 	"fields": [
 		{
 			"name": "insee",
